@@ -1,0 +1,76 @@
+{% extends "core/layout.html" %}
+{% load static %}
+
+{% block body %}
+  <!-- Header -->
+  <header class="macrohead d-flex align-items-center">
+    <div class="container px-4 px-lg-5 text-center">
+      <h1 class="mb-1">Macros</h1>
+      <h3 class="mb-5"><em>Do anything with that spreadsheet!</em></h3>
+      <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+    </div>
+  </header>
+  
+  <!-- Section description -->
+  <section class="content-section bg-light" id="about">
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-10">
+          <h2>Excel macro projects</h2>
+
+          <p class="lead mb-5">
+            Excel spreadsheet macros streamline workflows, significantly boosting productivity by automating repetitive tasks and complex calculations, allowing users to focus on data analysis and decision-making.
+          </p>
+
+          <!-- Projects displayed -->
+          {% for project in projects %} 
+          <div class="card mb-3">
+            <div 
+              class="card-header" 
+              id="heading{{ project.id }}"
+              data-bs-toggle="collapse" 
+              data-bs-target="#collapse{{ project.id }}" 
+              aria-expanded="false" 
+              aria-controls="collapse{{ project.id }}"
+            >
+              <h5 class="mb-0">{{ project.title }}</h5>
+            </div>
+            <div id="collapse{{ project.id }}" class="collapse" aria-labelledby="heading{{ project.id }}" data-bs-parent="#accordionExample">
+              <div class="card-body">
+                <h5>Description</h5>
+                <p>{{ project.description|linebreaks }}</p>
+
+                {% if project.video_file %} 
+                  <h5>Animation</h5>
+                  <video width="100%" controls autoplay loop muted playsinline>
+                      <source src="{{ project.video_file.url }}" type="video/webm">
+                      Your browser does not support the WebM video tag. Please update your browser or use alternative one.
+                  </video>
+                {% endif %}  
+
+                {% if project.screenshot %}       
+                  <h5>Screenshot</h5>
+                  <img class="img-fluid" src="{{ project.screenshot.url }}" alt="Screenshot">
+                {% endif %}
+
+                {% if project.disclaimer %}
+                <h5>Disclaimer</h5>
+                <p>{{ project.disclaimer }}</p>
+                {% endif %}  
+
+                <h5>Code Sample</h5>
+                <div class="scrollable-code">
+                  <pre><code class="language-vbnet">{{ project.code_snippet }}</code></pre>
+                </div>
+              </div> 
+            </div>
+          </div>
+          {% endfor %} 
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+{% endblock %}

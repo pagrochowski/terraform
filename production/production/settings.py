@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,18 +21,30 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-+o@o=!klxwp@xbw!f=&fzzqc-n6wj6q28y0tfu+xnu8pbjvxn8"
+SECRET_KEY = "django-insecure-(80xbz4x56u7yx+mo6em_6l_lbhj4hmlb=xx_5d+%4am8e9*eo"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Links to media files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Define the directory where uploaded files will be stored
+MEDIA_URL = '/media/'                     # URL prefix for serving media files
+
+# Setup for virtual email = EmailHog, accessible at this address: http://127.0.0.1:8025/
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = '127.0.0.1'
+EMAIL_PORT = 1025
+
+# For exclusion of the admin route in page visit count
+ADMIN_URL = '/admin/' 
+
 
 # Application definition
 
 INSTALLED_APPS = [
-    "terraform",
+    "core",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -48,6 +61,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'core.middleware.SessionVisitMiddleware'
 ]
 
 ROOT_URLCONF = "production.urls"
@@ -55,7 +69,7 @@ ROOT_URLCONF = "production.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        'DIRS': [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

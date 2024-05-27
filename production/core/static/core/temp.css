@@ -1,0 +1,26 @@
+.portfolio-item {
+    display: block;
+    position: relative;
+    overflow: hidden; /* Ensure overflow is hidden for the aspect ratio hack */
+    max-width: 530px;
+    margin: auto auto 1rem;
+  }
+  
+  /* Add this block to create the aspect ratio container */
+  .portfolio-item::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100%) */
+  }
+  
+  .portfolio-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crop to fit while maintaining aspect ratio */
+  }
+  
+  /* Rest of your CSS ... (caption styles, media queries, etc.) */
+  

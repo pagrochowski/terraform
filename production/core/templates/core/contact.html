@@ -1,0 +1,30 @@
+{% extends "core/layout.html" %} 
+{% block body %}
+
+<!-- Header-->
+<header class="contacthead d-flex align-items-center">
+    <div class="container px-4 px-lg-5 text-center">
+        <h1 class="mb-1">Contact Me</h1>
+        <br>
+        <form method="POST" class="row g-3">
+            {% csrf_token %}
+            <div class="col-12">
+                {{ form.name }}
+            </div>
+            <div class="col-12">
+                {{ form.email }}
+            </div>
+            <div class="col-12">
+                {{ form.subject }}
+            </div>
+            <div class="col-12">
+                {{ form.message }}
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary btn-xl">Send Message</button>
+            </div>
+        </form>
+    </div>
+</header>
+
+{% endblock %}

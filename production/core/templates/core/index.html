@@ -1,0 +1,135 @@
+{% extends "core/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <!-- Header-->
+    <header class="masthead d-flex align-items-center">
+        <div class="container px-4 px-lg-5 text-center">
+            <!-- Photo by Gabriel Peter: https://www.pexels.com/photo/tear-drops-macro-photography-696644/-->            
+            <h1 class="mb-1">Automation Generation</h1>
+            <h3 class="mb-5"><em>Your partner in streamlined success!</em></h3>
+            <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+        </div>
+    </header>
+    <!-- About-->
+    <section class="content-section bg-light" id="about">
+        <div class="container px-4 px-lg-5 text-center">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-10">
+                    <h2>One-stop shop for tailored automation solutions.</h2>
+                    <p class="lead mb-5">
+                        Designing, building and implementing custom automation that drives efficiency and delivers measurable results.
+                    </p>
+                    <a class="btn btn-dark btn-xl" href="#services">Offering</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services-->
+    <section class="content-section bg-primary text-white text-center" id="services">
+        <div class="container px-4 px-lg-5">
+            <div class="content-section-heading">
+                <h3 class="text-secondary mb-0">Services</h3>
+                <h2 class="mb-5">Offering</h2>
+            </div>
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                    <span class="service-icon rounded-circle mx-auto mb-3"><i class="fas fa-table"></i></span>
+                    <h4><strong>Macros</strong></h4>
+                    <p class="text-faded mb-0">Do anything with that spreadsheet!</p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
+                    <span class="service-icon rounded-circle mx-auto mb-3"><i class="fab fa-python"></i></span>
+                    <h4><strong>Scripts</strong></h4>
+                    <p class="text-faded mb-0">Who doesn't love a good script?</p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-5 mb-md-0">
+                    <span class="service-icon rounded-circle mx-auto mb-3"><i class="fas fa-globe"></i></span>
+                    <h4><strong>Websites</strong></h4>
+                    <p class="text-faded mb-0">
+                        When the world needs to hear you.
+                    </p>
+                </div>
+            </div>
+            <br><br><br>
+            <a class="btn btn-light btn-xl" href="#portfolio">Portfolio</a>
+        </div>
+        
+    </section>
+    <!-- Callout-->
+    <section class="callout">
+        <div class="container px-4 px-lg-5 text-center">
+            <h2 class="mx-auto mb-5">
+                Welcome to
+                <em>your</em>
+                smart future!
+            </h2>
+            <!-- <a class="btn btn-primary btn-xl" href="">Get a quote</a> -->
+            
+        </div>
+    </section>
+    <!-- Portfolio-->
+    <section class="content-section" id="portfolio">
+        <div class="container px-4 px-lg-5">
+            <div class="content-section-heading text-center">
+                <h3 class="text-secondary mb-0">Portfolio</h3>
+                <h2 class="mb-5">Recent Projects</h2>
+            </div>
+            <div class="row gx-0">
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="{% url 'macros' %}">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Macros</div>
+                                <p class="mb-0">Drowning in endless spreadsheets, wishing there was a faster, better way? Get ready to turn your spreadsheets into productivity powerhouses!</p>
+                            </div>
+                        </div>
+                        
+                        <img class="img-fluid" src="{% static 'core/img/portfolio-1.jpg' %}" alt="..." />
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="{% url 'scripts' %}">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Scripts</div>
+                                <p class="mb-0">Tired of clicking through the same, mind-numbing tasks day after day? Reclaim those precious hours automating repetitive chores. Work smarter, not harder.</p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'core/img/portfolio-2.jpg' %}" alt="..." />
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="{% url 'websites' %}">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Websites</div>
+                                <p class="mb-0">A functional website will act as your storefront - providing essential information, showcasing your products and services. Just like the one you're viewing right now!</p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'core/img/portfolio-3.jpg' %}" alt="..." />
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <a class="portfolio-item" href="{% url 'education' %}">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <div class="h2">Education</div>
+                                <p class="mb-0">My commitment to continuous learning ensures I stay ahead of the curve. Equipped with the knowledge and tools to deliver the solutions tailored to your needs.</p>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'core/img/portfolio-4.jpg' %}" alt="..." />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call to Action-->
+    <section class="content-section bg-primary text-white">
+        <div class="container px-4 px-lg-5 text-center">
+            <h2 class="mb-4">Interested to find out more?</h2>
+            <a class="btn btn-xl btn-light me-4" href="{% url 'contact' %}" id="email-me-btn">Contact Me!</a>
+            <!-- <a class="btn btn-xl btn-dark" href="#!">Linkedin!</a> -->
+        </div>
+    </section>
+{% endblock %}
