@@ -1,5 +1,5 @@
 # Base image
-FROM Python:3.12
+FROM python:3.12
 
 # Set the working directory first
 WORKDIR /workspaces/terraform/production
