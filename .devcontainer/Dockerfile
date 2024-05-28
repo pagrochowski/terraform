@@ -1,8 +1,8 @@
 # Base image
-FROM mcr.microsoft.com/devcontainers/base:jammy
+FROM Python:3.12
 
 # Set the working directory first
-WORKDIR /terraform
+WORKDIR /workspaces/terraform/production
 
 # Copy your Django project code
 COPY . .
